@@ -13,7 +13,7 @@ static const char* GRIDSYSTEM_NS = "com.bckmnn.gridsystem";
 static void registerTypes()
 {
     qmlRegisterType<GridAttachedType>();
-    qmlRegisterType<Grid>(GRIDSYSTEM_NS, 1, 0, "Grid");
+    qmlRegisterType<Grid>(GRIDSYSTEM_NS, 1, 0, "GSGrid");
 }
 
 Q_COREAPP_STARTUP_FUNCTION(registerTypes)

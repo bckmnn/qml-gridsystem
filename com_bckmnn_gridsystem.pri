@@ -1,5 +1,5 @@
 RESOURCES += \
-    $$PWD/com_bckmnn_qml-gridsystem.qrc
+    $$PWD/com_bckmnn_gridsystem.qrc
 
 !contains(GRIDSYSTEM_CONFIG,"noautoregister") {
     DEFINES += GRIDSYSTEM_AUTO_REGISTER

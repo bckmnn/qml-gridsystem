@@ -1,7 +1,7 @@
 {
   "name": "com.bckmnn.gridsystem",
   "author": {
-    "name": "bckmnn",
+    "name": "Stefan Beckmann",
     "email": "stfn@bckmnn.com"
   },
   "repository": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/bckmnn/qml-gridsystem.git"
   },
   "version": {
-    "label": "0.0.1"
+    "label": "0.0.2"
   },
   "dependencies": [
   ],
