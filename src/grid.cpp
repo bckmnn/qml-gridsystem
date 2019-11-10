@@ -83,6 +83,7 @@ void Grid::calculateValues()
     int gutters_width = static_cast<int>((m_columns - 1) * m_gutter);
     int avilable_columns_width = full_width - gutters_width;
     m_column_width = avilable_columns_width/m_columns;
+    emit columnWidthChanged();
 }
 
 double Grid::getColumnWidth()

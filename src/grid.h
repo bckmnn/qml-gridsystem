@@ -30,7 +30,7 @@ class Grid : public QQuickItem
     Q_OBJECT
     Q_PROPERTY(uint columns MEMBER m_columns NOTIFY gridChanged)
     Q_PROPERTY(uint gutter MEMBER m_gutter NOTIFY gridChanged)
-    Q_PROPERTY(double columnWidth READ getColumnWidth)
+    Q_PROPERTY(double columnWidth READ getColumnWidth NOTIFY columnWidthChanged)
     Q_PROPERTY(double contentHeight READ getContentHeight NOTIFY contentHeightChanged)
     Q_PROPERTY(bool showGrid MEMBER m_showGrid NOTIFY gridChanged)
     Q_PROPERTY(QColor columnColor MEMBER m_column_color NOTIFY gridChanged)
@@ -61,6 +61,7 @@ public:
 signals:
     void gridChanged();
     void contentHeightChanged();
+    void columnWidthChanged();
 
 public slots:
     void onGridChanged();
