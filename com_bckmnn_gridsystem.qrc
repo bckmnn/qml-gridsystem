@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/com/bckmnn/gridsystem">
+        <file>qmldir</file>
+    </qresource>
+</RCC>

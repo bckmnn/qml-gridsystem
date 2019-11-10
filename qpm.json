@@ -1,0 +1,18 @@
+{
+  "name": "com.bckmnn.gridsystem",
+  "author": {
+    "name": "bckmnn",
+    "email": "stfn@bckmnn.com"
+  },
+  "repository": {
+    "type": "GIT",
+    "url": "https://github.com/bckmnn/qml-gridsystem.git"
+  },
+  "version": {
+    "label": "0.0.1"
+  },
+  "dependencies": [
+  ],
+  "license": "MIT",
+  "priFilename": "com_bckmnn_gridsystem.pri"
+}
