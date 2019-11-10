@@ -2,4 +2,7 @@
     <qresource prefix="/com/bckmnn/gridsystem">
         <file>qmldir</file>
     </qresource>
+    <qresource prefix="/qt-project.org/imports/com/bckmnn/gridsystem">
+        <file>qmldir</file>
+    </qresource>
 </RCC>
