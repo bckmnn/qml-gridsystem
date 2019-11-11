@@ -29,11 +29,12 @@ class Grid : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(uint columns MEMBER m_columns NOTIFY gridChanged)
-    Q_PROPERTY(uint gutter MEMBER m_gutter NOTIFY gridChanged)
     Q_PROPERTY(double columnWidth READ getColumnWidth NOTIFY columnWidthChanged)
+    Q_PROPERTY(QColor columnColor MEMBER m_column_color NOTIFY gridChanged)
+    Q_PROPERTY(uint columnSpacing MEMBER m_column_spacing NOTIFY gridChanged)
+    Q_PROPERTY(uint rowSpacing MEMBER m_row_spacing NOTIFY gridChanged)
     Q_PROPERTY(double contentHeight READ getContentHeight NOTIFY contentHeightChanged)
     Q_PROPERTY(bool showGrid MEMBER m_showGrid NOTIFY gridChanged)
-    Q_PROPERTY(QColor columnColor MEMBER m_column_color NOTIFY gridChanged)
     Q_PROPERTY(FillStrategy fillStrategy MEMBER m_fill_strategy NOTIFY gridChanged)
 
 public:
@@ -73,7 +74,9 @@ private:
     double m_column_width;
     QColor m_column_color;
 
-    double m_gutter;
+    double m_column_spacing;
+
+    uint m_row_spacing;
 
     double m_content_height;
 

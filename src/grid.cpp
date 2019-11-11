@@ -33,7 +33,8 @@ Grid::Grid(QQuickItem *parent):
     m_columns(12.0),
     m_column_width(0),
     m_column_color("#3Cff0000"),
-    m_gutter(20.0),
+    m_column_spacing(20.0),
+    m_row_spacing(0),
     m_fill_strategy(ITEM_BREAK),
     m_showGrid(false)
 {
@@ -55,7 +56,7 @@ int Grid::getColumnStart(int column)
     if(column <= 0){
         return 0;
     }
-    return qFloor(static_cast<double>(column)*(m_column_width+m_gutter));
+    return qFloor(static_cast<double>(column)*(m_column_width+m_column_spacing));
 }
 
 int Grid::getColumnsWidth(int columns)
@@ -63,7 +64,7 @@ int Grid::getColumnsWidth(int columns)
     if(columns <= 0){
         return 0;
     }
-    return qFloor(static_cast<double>(columns)*(m_column_width+m_gutter)-m_gutter);
+    return qFloor(static_cast<double>(columns)*(m_column_width+m_column_spacing)-m_column_spacing);
 }
 
 double Grid::getColumns()
@@ -80,7 +81,7 @@ void Grid::onGridChanged()
 void Grid::calculateValues()
 {
     int full_width = static_cast<int>(this->width());
-    int gutters_width = static_cast<int>((m_columns - 1) * m_gutter);
+    int gutters_width = static_cast<int>((m_columns - 1) * m_column_spacing);
     int avilable_columns_width = full_width - gutters_width;
     m_column_width = avilable_columns_width/m_columns;
     emit columnWidthChanged();
@@ -184,7 +185,7 @@ void Grid::updatePolish()
                     maxY = qFloor(child->height());
                 }
                 if(columns_used >= m_columns){
-                    yOffset += maxY;
+                    yOffset += maxY + static_cast<int>(m_row_spacing);
                     maxY = 0;
                     columns_used = 0;
                 }
@@ -194,7 +195,7 @@ void Grid::updatePolish()
                     if(columns_requested > m_columns){
                         qWarning() << "item requested" << columns_requested << "columns. but grid has only" << m_columns << "columns. item will be ignored.";
                     }else{
-                        yOffset += maxY;
+                        yOffset += maxY + static_cast<int>(m_row_spacing);
                         maxY = 0;
                         columns_used = 0;
                         child->setX(getColumnStart(columns_used));
@@ -212,7 +213,7 @@ void Grid::updatePolish()
                     maxY = qFloor(child->height());
                 }
                 if(columns_used >= m_columns){
-                    yOffset += maxY;
+                    yOffset += maxY + static_cast<int>(m_row_spacing);
                     maxY = 0;
                     columns_used = 0;
                 }

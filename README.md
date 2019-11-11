@@ -1,6 +1,6 @@
 # qml-gridsystem
 
-A gridsystem for QML similar to grid systems that are available for CSS. You specify how many columns
+A grid system for QML similar to grid systems that are available for CSS. You specify how many columns
 a object should occupy and the GSGrid does the layout for you.
 
 
@@ -26,7 +26,7 @@ import com.bckmnn.gridsystem 1.0
 ```
 
 You can then use the `GSGrid{}` to layout your qml. The `GSGrid` will layout all child items that have
-a `GSGrid` attached property specifing the number of columns this object should occupy. See the following
+a `GSGrid` attached property specifying the number of columns this object should occupy. See the following
 example how to use it.
 
 ```
@@ -46,13 +46,14 @@ Window {
         anchors.fill: parent
 
         columns: 12                     // sets the number of columns
-        gutter: 20                      // sets the gutter width between the columns in px
+        columnSpacing: 20               // sets the spacing between columns in px
+        rowSpacing: 20                  // sets the spacing between rows in px
         columnColor: "#3300ff00"        // sets the color of the columns for the grid overlay
                                         // see showGrid
 
         showGrid: true                  // displays the grid overlay
 
-        fillStrategy: GSGrid.ITEM_BREAK   // sets the fill strategy (ITEM_BREAK / ITEM_SQUEEZE)
+        fillStrategy: GSGrid.ITEM_BREAK // sets the fill strategy (ITEM_BREAK / ITEM_SQUEEZE)
 
         onColumnWidthChanged: {
             console.log("a column is", columnWidth, "px wide")
