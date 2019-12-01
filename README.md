@@ -39,7 +39,22 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("GSGrid Example")
+
+    Rectangle{
+        color: "darkblue"
+        width: grid.helpers.getColumnsWidth(2)
+        height: 100
+        y: 50
+        x: grid.helpers.getColumnStart(2)
+        z: 10
+        Text {
+            color: "#fff"
+            text: "not part of the grid, but still 2 columns wide and positioned in the 3rd column"
+            anchors.fill: parent
+            wrapMode: Text.Wrap
+        }
+    }
 
     GSGrid{
         id: grid
@@ -71,7 +86,13 @@ Window {
         Rectangle{
             color: "red"
             height: 100
-            GSGrid.colWidth: 6
+            GSGrid.colWidth: win.width < 600 ? 3 : 6
+            Text {
+                color: "#fff"
+                text: "depending on the window width, i am smaller or bigger"
+                anchors.fill: parent
+                wrapMode: Text.Wrap
+            }
         }
         Rectangle{
             color: "yellow"
@@ -80,13 +101,20 @@ Window {
         }
         Rectangle{
             color: "orange"
-            height: 80
+            radius: width/2
+            height: grid.helpers.getColumnsWidth(3)
             GSGrid.colWidth: 3
         }
         Rectangle{
             color: "blue"
             height: 80
             GSGrid.colWidth: 7
+            Text {
+                color: "#fff"
+                text: "click here to toggle fill strategy"
+                anchors.fill: parent
+                wrapMode: Text.Wrap
+            }
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
@@ -102,6 +130,27 @@ Window {
             color: "purple"
             height: 80
             GSGrid.colWidth: 7
+        }
+
+        GSGrid{
+            // grid to display the column number
+            GSGrid.colWidth: 12
+            height: 25
+            anchors.bottom: parent.bottom
+            Repeater{
+                model: 12
+                Rectangle {
+                    color: "#f0f"
+                    height: parent.height
+                    Text {
+                        color: "#fff"
+                        text: index
+                        font.bold: true
+                        anchors.centerIn: parent
+                    }
+                    GSGrid.colWidth: 1
+                }
+            }
         }
     }
 }

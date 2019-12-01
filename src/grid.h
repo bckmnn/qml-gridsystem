@@ -35,7 +35,7 @@ class Grid : public QQuickItem
     Q_PROPERTY(uint rowSpacing MEMBER m_row_spacing NOTIFY gridChanged)
     Q_PROPERTY(double contentHeight READ getContentHeight NOTIFY contentHeightChanged)
     Q_PROPERTY(bool showGrid MEMBER m_showGrid NOTIFY gridChanged)
-    Q_PROPERTY(Grid* helpers READ getHelpers NOTIFY gridChanged)
+    Q_PROPERTY(Grid* helpers READ getHelpers NOTIFY columnWidthChanged)
     Q_PROPERTY(FillStrategy fillStrategy MEMBER m_fill_strategy NOTIFY gridChanged)
 
 public:
