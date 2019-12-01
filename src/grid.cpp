@@ -26,6 +26,7 @@ int GridAttachedType::colWidth() const
 void GridAttachedType::setColWidth(int width)
 {
     m_colWidth = width;
+    emit colWidthChanged();
 }
 
 Grid::Grid(QQuickItem *parent):
