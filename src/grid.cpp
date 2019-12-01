@@ -108,6 +108,11 @@ bool Grid::showGrid()
     return m_showGrid;
 }
 
+Grid *Grid::getHelpers()
+{
+    return this;
+}
+
 GridAttachedType *Grid::getAttachedType(QQuickItem *item) const
 {
     return qobject_cast<GridAttachedType *> (qmlAttachedPropertiesObject<Grid> (item, false));

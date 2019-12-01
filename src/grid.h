@@ -35,6 +35,7 @@ class Grid : public QQuickItem
     Q_PROPERTY(uint rowSpacing MEMBER m_row_spacing NOTIFY gridChanged)
     Q_PROPERTY(double contentHeight READ getContentHeight NOTIFY contentHeightChanged)
     Q_PROPERTY(bool showGrid MEMBER m_showGrid NOTIFY gridChanged)
+    Q_PROPERTY(Grid* helpers READ getHelpers NOTIFY gridChanged)
     Q_PROPERTY(FillStrategy fillStrategy MEMBER m_fill_strategy NOTIFY gridChanged)
 
 public:
@@ -52,12 +53,12 @@ public:
     Q_INVOKABLE int getColumnStart(int column);
     Q_INVOKABLE int getColumnsWidth(int columns);
 
+    bool showGrid();
+
     double getColumns();
     double getColumnWidth();
     double getContentHeight();
     QColor getColumnColor();
-
-    bool showGrid();
 
 signals:
     void gridChanged();
@@ -69,6 +70,8 @@ public slots:
 
 private:
     void calculateValues();
+
+    Grid * getHelpers();
 
     double m_columns;
     double m_column_width;
