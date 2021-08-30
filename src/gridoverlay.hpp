@@ -1,5 +1,4 @@
-#ifndef GRIDOVERLAY_H
-#define GRIDOVERLAY_H
+#pragma once
 
 #include <QObject>
 #include <QQuickItem>
@@ -26,4 +25,3 @@ protected:
 
 }}}
 
-#endif // GRIDOVERLAY_H

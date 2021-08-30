@@ -1,8 +1,8 @@
 #include <QSGFlatColorMaterial>
 #include <QSGGeometryNode>
 
-#include "gridoverlay.h"
-#include "grid.h"
+#include "gridoverlay.hpp"
+#include "grid.hpp"
 
 namespace com { namespace bckmnn { namespace gridsystem {
 

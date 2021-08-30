@@ -1,11 +1,7 @@
-#include <QDebug>
-#include <QtMath>
+#include <QtCore/QDebug>
+#include <QtCore/QtMath>
 
-#include "grid.h"
-
-#if defined(GRIDSYSTEM_AUTO_REGISTER)
-#include "gridsystem_autoregister.h"
-#endif
+#include "grid.hpp"
 
 namespace com { namespace bckmnn { namespace gridsystem {
 

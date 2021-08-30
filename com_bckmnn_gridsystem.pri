@@ -1,14 +1,9 @@
 RESOURCES += \
     $$PWD/com_bckmnn_gridsystem.qrc
 
-!contains(GRIDSYSTEM_CONFIG,"noautoregister") {
-    DEFINES += GRIDSYSTEM_AUTO_REGISTER
-}
-
 HEADERS += \
     $$PWD/src/grid.h \
-    $$PWD/src/gridoverlay.h \
-    $$PWD/src/gridsystem_autoregister.h
+    $$PWD/src/gridoverlay.h
 
 SOURCES += \
     $$PWD/src/grid.cpp \

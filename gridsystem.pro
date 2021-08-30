@@ -1,15 +1,19 @@
 TEMPLATE = lib
-TARGET = GridSystem
+TARGET = qml-gridsystem
 QT += qml quick
 CONFIG += plugin c++11
+CONFIG += qmltypes
+
+QML_IMPORT_NAME = com.bckmnn.gridsystem
+QML_IMPORT_MAJOR_VERSION = 1
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = com.bckmnn.gridsystem
 
 HEADERS += \
-    src/grid.h \
-    src/gridoverlay.h \
-    src/gridsystem_plugin.h 
+    src/grid.hpp \
+    src/gridoverlay.hpp \
+    src/gridsystem_plugin.hpp
 
 SOURCES += \
     src/grid.cpp \
@@ -20,6 +24,8 @@ DISTFILES = qmldir \
     com_bckmnn_gridsystem.pri \
     $$PWD/README.md \
     $$PWD/LICENSE
+
+INCLUDEPATH += src/
 
 !equals(_PRO_FILE_PWD_, $$OUT_PWD) {
     copy_qmldir.target = $$OUT_PWD/qmldir

@@ -1,10 +1,10 @@
-#ifndef GRID_H
-#define GRID_H
+#pragma once
 
-#include <QQuickItem>
-#include <QObject>
+#include <QtQuick/QQuickItem>
+#include <QtCore/QObject>
+#include <QtQml/qqml.h>
 
-#include "gridoverlay.h"
+#include "gridoverlay.hpp"
 
 namespace com { namespace bckmnn { namespace gridsystem {
 
@@ -12,6 +12,7 @@ class GridAttachedType : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int colWidth READ colWidth WRITE setColWidth NOTIFY colWidthChanged)
+    QML_ANONYMOUS
 public:
     GridAttachedType(QObject *parent);
     int colWidth() const;
@@ -28,6 +29,9 @@ private:
 class Grid : public QQuickItem
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(Grid)
+    QML_ATTACHED(com::bckmnn::gridsystem::GridAttachedType)
+
     Q_PROPERTY(uint columns MEMBER m_columns NOTIFY gridChanged)
     Q_PROPERTY(double columnWidth READ getColumnWidth NOTIFY columnWidthChanged)
     Q_PROPERTY(QColor columnColor MEMBER m_column_color NOTIFY gridChanged)
@@ -38,13 +42,15 @@ class Grid : public QQuickItem
     Q_PROPERTY(Grid* helpers READ getHelpers NOTIFY columnWidthChanged)
     Q_PROPERTY(FillStrategy fillStrategy MEMBER m_fill_strategy NOTIFY gridChanged)
 
+
+
 public:
     enum FillStrategy
     {
-        ITEM_SQUEEZE,
+        ITEM_SQUEEZE = 0,
         ITEM_BREAK
     };
-    Q_ENUMS(FillStrategy)
+    Q_ENUM(FillStrategy)
 
     Grid(QQuickItem *parent = nullptr);
     ~Grid() override;
@@ -101,8 +107,3 @@ protected:
 };
 
 }}}
-
-QML_DECLARE_TYPE(com::bckmnn::gridsystem::Grid)
-QML_DECLARE_TYPEINFO(com::bckmnn::gridsystem::Grid, QML_HAS_ATTACHED_PROPERTIES)
-
-#endif // GRID_H
